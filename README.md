@@ -5,23 +5,23 @@
 ## 📁 프로젝트 구조
 
 ```
-├── main.py # FastAPI 서버 엔트리포인트
-├── .gitattributes # Git LFS 설정
+├── main.py                  # FastAPI 서버 엔트리포인트
+├── .gitattributes           # Git LFS 설정
 ├── sleepy_project/
-│ ├── model/sleepy_v1/ # 졸림 감지 모델
+│ ├── model/sleepy_v1/       # 졸림 감지 모델
 │ │ ├── config.json
 │ │ └── model.safetensors
-│ ├── scripts/inference.py # sleepy 예측 스크립트
+│ ├── scripts/inference.py   # sleepy 예측 스크립트
 │ └── requirements.txt
 ├── yawn_project/
-│ ├── model/yawn_AST/ # 하품 감지 모델
+│ ├── model/yawn_AST/        # 하품 감지 모델
 │ │ ├── config.json
 │ │ ├── model.safetensors
 │ │ └── preprocessor_config.json
-│ ├── scripts/inference.py # yawn 예측 스크립트
+│ ├── scripts/inference.py   # yawn 예측 스크립트
 │ └── requirements.txt
 ├── utils/
-│ └── audio_utils.py # 공통 오디오 전처리 유틸
+│ └── audio_utils.py         # 공통 오디오 전처리 유틸
 ```
 
 ## 🚀 실행 환경
