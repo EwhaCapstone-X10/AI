@@ -1,7 +1,0 @@
-torch
-torchaudio
-transformers
-pydub
-fastapi
-uvicorn
-librosa
