@@ -1,0 +1,22 @@
+dataset:
+  raw_dir: data/raw_emov_db
+  csv_path: data/emov_db.csv
+  processed_dir: data/processed_emov_db
+  val_ratio: 0.1
+  test_ratio: 0.1
+  seed: 42
+
+model:
+  name: superb/wav2vec2-base-superb-er
+  save_path: models/sleepy_v1
+  sampling_rate: 16000
+  num_labels: 2
+
+training:
+  learning_rate: 2e-5
+  batch_size: 8
+  num_epochs: 10
+  weight_decay: 0.01
+  output_dir: logs/results
+  logging_dir: logs
+  save_strategy: epoch
