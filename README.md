@@ -3,17 +3,6 @@
 
 
 ## 📁 프로젝트 구조
-```
-├── main.py            # FastAPI 서버 엔트리포인트
-├── .gitattributes     # Git LFS 설정
-├── code/              # (기타 코드 파일)
-├── model/
-│   └── yawn_AST/      # 사전 학습된 yawn 모델
-│       ├── config.json
-│       ├── model.safetensors
-│       └── preprocessor_config.json
-
-```
 
 ```
 ├── main.py # FastAPI 서버 엔트리포인트
