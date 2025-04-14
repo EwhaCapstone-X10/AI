@@ -16,7 +16,9 @@ def preprocess_audio(path: str, target_sr: int = 16000):
     if sr != target_sr:
         resampler = torchaudio.transforms.Resample(orig_freq=sr, new_freq=target_sr)
         speech = resampler(speech)
-    speech = speech.squeeze().numpy()
+
+    if speech.ndim > 1 and speech.shape[0] > 1:
+        speech = speech.mean(dim=0)
 
     inputs = sleepy_fe(
         speech,
