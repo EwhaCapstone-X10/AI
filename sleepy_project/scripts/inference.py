@@ -4,9 +4,9 @@ from transformers import AutoModelForAudioClassification, Wav2Vec2FeatureExtract
 import os
 
 # (global) model loading
-MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model", "sleepy_v1"))
+MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model", "sleepy_v1_bin"))
 
-sleepy_model = AutoModelForAudioClassification.from_pretrained(MODEL_PATH)
+sleepy_model = AutoModelForAudioClassification.from_pretrained(MODEL_PATH, use_safetensors=False)
 sleepy_fe = Wav2Vec2FeatureExtractor.from_pretrained("superb/wav2vec2-base-superb-er")
 sleepy_model.eval()
 
