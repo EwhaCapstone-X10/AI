@@ -6,7 +6,7 @@ from transformers import ASTFeatureExtractor, ASTForAudioClassification
 # (global) model loading
 MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model", "yawn_AST_bin"))
 
-yawn_model = ASTForAudioClassification.from_pretrained(MODEL_PATH)
+yawn_model = ASTForAudioClassification.from_pretrained(MODEL_PATH, use_safetensors=False)
 yawn_fe = ASTFeatureExtractor.from_pretrained(MODEL_PATH)
 yawn_model.eval()
 
