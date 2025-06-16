@@ -9,13 +9,6 @@ from sleepy_project.scripts.inference import predict_sleepiness
 
 app = FastAPI()
 
-# 🔐 모델 로딩 시도
-try:
-    from sleepy_project.scripts.inference import sleepy_model
-except Exception as e:
-    print(f"❌ Failed to load sleepy_model: {e}")
-    sleepy_model = None
-
 # API endpoint
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
