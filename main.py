@@ -2,11 +2,19 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 import os
 
+from transformers import AutoModelForAudioClassification  # 누락되었을 수 있음
 from utils.audio_utils import convert_m4a_to_wav
 from yawn_project.scripts.inference import predict_yawn
 from sleepy_project.scripts.inference import predict_sleepiness
 
 app = FastAPI()
+
+# 🔐 모델 로딩 시도
+try:
+    from sleepy_project.scripts.inference import sleepy_model
+except Exception as e:
+    print(f"❌ Failed to load sleepy_model: {e}")
+    sleepy_model = None
 
 # API endpoint
 @app.post("/predict")
@@ -19,7 +27,7 @@ async def predict(file: UploadFile = File(...)):
         wav_path = convert_m4a_to_wav(contents)
 
         yawn = predict_yawn(wav_path)
-        sleepy = predict_sleepiness(wav_path)
+        sleepy = predict_sleepiness(wav_path) if sleepy_model else "unavailable"
 
         os.remove(wav_path)
 
