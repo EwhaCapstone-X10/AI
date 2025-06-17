@@ -9,6 +9,11 @@ from sleepy_project.scripts.inference import predict_sleepiness
 
 app = FastAPI()
 
+# ✅ 테스트용 엔드포인트
+@app.get("/ping")
+async def ping():
+    return {"message": "pong"}
+
 # API endpoint
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
