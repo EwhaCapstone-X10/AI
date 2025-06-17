@@ -4,10 +4,12 @@ import librosa
 from transformers import ASTFeatureExtractor, ASTForAudioClassification
 
 # (global) model loading
+MODEL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "model", "yawn_AST"))
+
 print("📦 모델 로드 중")
 yawn_model = ASTForAudioClassification.from_pretrained("minjeon99/yawn-ast-bin")
-print("✅ 모델 로딩 완료")
 yawn_fe = ASTFeatureExtractor.from_pretrained(MODEL_PATH)
+print("✅ 모델 로딩 완료")
 yawn_model.eval()
 
 # preprocess function
