@@ -25,7 +25,7 @@ async def predict(file: UploadFile = File(...)):
         wav_path = convert_m4a_to_wav(contents)
 
         yawn = predict_yawn(wav_path)
-        sleepy = predict_sleepiness(wav_path) if sleepy_model else "unavailable"
+        sleepy = predict_sleepiness(wav_path)
 
         os.remove(wav_path)
 
